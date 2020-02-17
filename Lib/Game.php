@@ -19,7 +19,7 @@ class Game
 
     public function __construct(Player $p1, Player $p2,int $pairs = null) {
         //set players
-        if (!empty($max_pairs)) $this->setMaxPairs($pairs);
+        if (!empty($pairs)) $this->setMaxPairs($pairs);
         $this->setPlayers($p1,$p2);
         $this->initGame();
 
