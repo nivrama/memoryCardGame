@@ -30,11 +30,13 @@ while (true) {
 
     $card1 = (int) $unmatched[$random1];
     $card2 = (int) $unmatched[$random2];
-
+    echo 'setting turn'.PHP_EOL;
     $game->setTurn();
     $game->play($card1,$card2);
 
 }
 
 $game->gameOver();
+$game = null;
+
 

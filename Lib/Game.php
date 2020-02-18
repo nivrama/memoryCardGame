@@ -48,8 +48,7 @@ class Game
 
         $this->selectCards();
         $this->shuffleCards();
-        //set players 1 turn
-        $this->setTurn();
+
     }
 
     private function selectCards()
@@ -92,8 +91,6 @@ class Game
         $list = [];
         //reset unmatched_indices
         $this->_unmatched_indices = [];
-
-        echo PHP_EOL.'Select 2 cards...'.PHP_EOL;
 
         foreach ($this->_playing_cards as $k => $v) {
 
@@ -158,10 +155,13 @@ class Game
      */
     private function flipCard(int $val)
     {
-        echo 'Flipping card #'.$val.PHP_EOL;
+        echo 'Flipping card #'.$val;
 
         if (!$this->_playing_cards[$val]['matched']) {
+
+            echo ' '.$this->_playing_cards[$val]['label'].' card revealed.'.PHP_EOL;
             return $this->_playing_cards[$val]['label'];
+
         } else {
             echo 'Card already matched. Try again!'.PHP_EOL;
             return false;
@@ -202,6 +202,9 @@ class Game
             $this->_currentPlayer = 2;
             echo "Player 2's turn." . PHP_EOL;
         }
+
+        echo PHP_EOL.'Select 2 cards...'.PHP_EOL;
+
     }
 
 }
